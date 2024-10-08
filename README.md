@@ -286,10 +286,128 @@ Redução de custos devido à eficiência operacional em larga escala.
 
 ### 6.3 Armazenamento:
 
-- Blob Storage: Armazenamento de objetos não estruturados
-- File Storage: Compartilhamentos de arquivos totalmente gerenciados
-- Queue Storage: Armazenamento de mensagens para processamento assíncrono
-- Table Storage: Armazenamento NoSQL para dados estruturados
+#### 6.3.1 Serviços de armazenamento
+
+##### - Blob Storage: 
+- Otimizado para armazenamento massivo de dados não estruturados (texto ou binários).
+- Ideal para: imagens, vídeos, backups, big data.
+- Três tipos: Block Blobs, Page Blobs, e Append Blobs.
+
+##### - Disco do Azure:
+- Fornece discos virtuais para VMs e aplicativos.
+- Tipos: HDD Standard, SSD Standard, SSD Premium, Ultra Disks.
+- Suporta discos gerenciados e não gerenciados.
+
+##### - Fila do Azure:
+- Armazenamento de mensagens para comunicação assíncrona.
+- Capacidade de até 64 KB por mensagem.
+- Útil para desacoplar componentes de aplicações.
+
+##### - Arquivos do Azure:
+- Compartilhamento de arquivos de rede totalmente gerenciado.
+- Usa protocolo SMB (Server Message Block).
+- Pode ser montado simultaneamente por implantações na nuvem e on-premises.
+
+##### - Tabelas do Azure:
+- Armazenamento NoSQL para dados estruturados não relacionais.
+- Design sem esquema para flexibilidade.
+- Acesso rápido usando chave/atributo.
+
+#### 6.3.2 Opções de redundância
+
+##### - LRS (Locally Redundant Storage):
+- 3 cópias dos dados em um único data center.
+- 11 noves de durabilidade.
+
+##### - ZRS (Zone-Redundant Storage):
+- 3 cópias em zonas de disponibilidade separadas na mesma região.
+- Proteção contra falhas de data center.
+
+##### - GRS (Geo-Redundant Storage):
+- 6 cópias: 3 na região primária (LRS) e 3 na região secundária.
+- 16 noves de durabilidade.
+
+##### - GZRS (Geo-Zone-Redundant Storage):
+- Combina ZRS na região primária com replicação para uma região secundária.
+- Máxima proteção e disponibilidade.
+
+#### 6.3.3 Gerenciamento e migração de arquivos
+
+##### - AzCopy:
+- Utilitário de linha de comando.
+- Para copiar blobs ou arquivos de/para conta de armazenamento.
+- Suporta sincronização unidirecional.
+
+##### - Gerenciador de Armazenamento do Azure:
+- Interface gráfica (similar ao Windows Explorer).
+- Compatível com Windows, MacOS e Linux.
+- Gerencia múltiplos tipos de armazenamento.
+
+##### - Sincronização de Arquivos do Azure:
+- Sincronização bidirecional entre Azure e servidores on-premises.
+- Suporta "cloud tiering" para otimizar espaço local.
+
+#### 6.3.4 Armazenamento: domínio de objetivo
+
+##### 6.3.4.1 Comparação dos serviços de armazenamento do Azure
+
+- Cada serviço (Blob, Disk, File, Queue, Table) tem casos de uso específicos.
+- Diferem em estrutura de dados, latência, e capacidade.
+
+##### 6.3.4.2 Camadas de armazenamento
+
+###### - Hot: 
+- Para dados acessados frequentemente.
+###### - Cool: 
+- Para dados acessados com menos frequência (pelo menos 30 dias).
+###### - Archive: 
+- Para dados raramente acessados (pelo menos 180 dias).
+
+##### 6.3.4.3 Opções de conta de armazenamento
+
+###### - Standard General-purpose v2: 
+- Para maioria dos cenários.
+###### - Premium block blobs: 
+- Para alto desempenho em blobs.
+###### - Premium file shares: 
+- Para compartilhamentos de arquivos de alto desempenho.
+###### - Premium page blobs: 
+- Para discos de VM de alto desempenho.
+
+##### 6.3.4.4 Opções de migração
+
+###### - Migrações para Azure:
+- Plataforma unificada para migração.
+- Ferramentas integradas para avaliação e migração.
+- Suporta migrações de servidores, bancos de dados, e aplicações web.
+
+###### - Azure Data Box:
+- Para transferências offline de grandes volumes de dados (até 80 TB).
+- Útil para backups, migração inicial, ou retorno de dados do Azure.
+- Seguro e robusto para transporte físico.
+
+##### 6.3.5 Contas de Armazenamento
+
+- Requerem nome globalmente único.
+- Fornecem acesso mundial via internet.
+- Determinam serviços disponíveis e opções de redundância.
+
+##### 6.3.6 Pontos de extremidade públicos do serviço de armazenamento
+
+- Cada serviço (blob, file, queue, table) tem um endpoint único.
+- Formato geral: https://..core.windows.net
+
+##### 6.3.7 Migrações para o Azure
+
+- Avaliação de ambiente on-premises.
+- Planejamento e execução de migração.
+- Suporte a diversos cenários de migração.
+
+##### 6.3.8 Opções de gerenciamento de arquivos
+
+- AzCopy: Para operações em lote e scripts.
+- Gerenciador de Armazenamento: Para operações visuais e exploração.
+- Sincronização de Arquivos: Para manter consistência entre on-premises e nuvem.
 
 ### 6.4 Banco de Dados:
 
