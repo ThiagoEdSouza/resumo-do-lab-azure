@@ -415,9 +415,127 @@ Redução de custos devido à eficiência operacional em larga escala.
 - Cosmos DB: Banco de dados multi-modelo globalmente distribuído
 - MySQL: Versão gerenciada do MySQL para Azure
 
-### 6.5 Identidade:
+### 6.5 Identidade, Acesso e Segurança:
 
-Azure Active Directory: Serviço de gerenciamento de identidade e acesso
+#### 6.5.1 Microsoft Entra ID (anteriormente Azure Active Directory)
+
+Serviço de gerenciamento de identidades e acesso baseado em nuvem.
+
+##### 6.5.1.1 Principais funcionalidades:
+
+###### Autenticação: 
+Verifica identidades para acesso a recursos.
+###### Logon único (SSO): 
+Permite acesso a múltiplos aplicativos com uma única autenticação.
+###### Gerenciamento de aplicativos: 
+Controla acesso e políticas para aplicativos corporativos.
+###### Business-to-Business (B2B): 
+Facilita colaboração segura com parceiros externos.
+###### Gerenciamento de dispositivos: 
+Integra controle de acesso baseado em dispositivos.
+
+#### 6.5.2 Microsoft Entra Domain Services
+
+- Fornece serviços de domínio gerenciados na nuvem.
+
+##### 6.5.2.1 Benefícios:
+
+- Elimina necessidade de gerenciar controladores de domínio.
+- Suporta aplicativos legados que requerem autenticação tradicional.
+- Sincronização automática com Microsoft Entra ID.
+
+#### 6.5.3 Métodos de Autenticação
+
+##### 6.5.3.1 SSO (Single Sign-On):
+
+- Permite acesso a múltiplos aplicativos com uma única autenticação.
+- Melhora experiência do usuário e segurança.
+
+##### 6.5.3.2 MFA (Autenticação Multifator):
+
+Requer dois ou mais elementos para autenticação completa:
+
+- Algo que você sabe (senha)
+- Algo que você possui (telefone)
+- Algo que você é (biometria)
+
+##### 6.5.3.3 Autenticação sem senha:
+
+- Utiliza métodos como Windows Hello, FIDO2 security keys, ou Microsoft Authenticator.
+
+#### 6.5.4 Identidades Externas e Acesso de Convidado
+
+##### 6.5.4.1 B2B do Microsoft Entra External ID:
+
+- Permite colaboração segura com parceiros externos.
+- Usuários externos acessam recursos com suas próprias credenciais.
+
+##### 6.5.4.2 B2C do Identidades Externas do Azure AD:
+
+- Gerencia identidades e acesso para clientes.
+- Personalização de experiências de login e registro.
+
+#### 6.5.5 Acesso Condicional do Entra
+
+- Ferramenta para tomar decisões de acesso baseadas em múltiplos fatores:
+- Associação de usuário ou grupo
+- Localização do IP
+- Dispositivo
+- Aplicativo
+- Detecção de risco
+
+#### 6.5.6 Controle de Acesso Baseado em Função (RBAC)
+
+- Gerenciamento de acesso granular.
+- Permite atribuir permissões específicas baseadas em funções.
+- Aplicável no portal Azure e no controle de recursos.
+
+#### 6.5.7 Conceito de Confiança Zero
+
+Princípio de "nunca confiar, sempre verificar".
+
+##### 6.5.7.1 Elementos-chave:
+
+- Verificar explicitamente
+- Usar acesso com privilégio mínimo
+- Assumir violação
+
+#### 6.5.8 Modelo de Defesa em Profundidade
+
+Abordagem em camadas para segurança.
+
+##### 6.5.8.1 Múltiplos níveis de proteção:
+
+- Segurança física
+- Identidade e acesso
+- Perímetro
+- Rede
+- Computação
+- Aplicação
+- Dados
+
+#### 6.5.9 Microsoft Defender para Nuvem
+
+Serviço de monitoramento de segurança para Azure e ambientes on-premises.
+
+##### 6.5.9.1 Funcionalidades:
+
+- Fornece recomendações de segurança.
+- Detecta e bloqueia malware.
+- Analisa e identifica potenciais ataques.
+- Oferece controle de acesso just-in-time para portas.
+
+#### 6.5.10 Autenticação vs. Autorização
+
+##### 6.5.10.1 Autenticação:
+
+- Identifica quem está tentando acessar um recurso.
+- Verifica credenciais legítimas.
+
+##### 6.5.10.2 Autorização:
+
+- Determina o que um usuário autenticado pode fazer.
+- Define níveis de acesso e permissões.
 
 ### 6.6 Segurança:
 
