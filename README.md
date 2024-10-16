@@ -537,46 +537,185 @@ Serviço de monitoramento de segurança para Azure e ambientes on-premises.
 - Determina o que um usuário autenticado pode fazer.
 - Define níveis de acesso e permissões.
 
-### 6.6 Segurança:
+##### 6.6 Segurança:
 
-- Key Vault: Gerenciamento seguro de chaves criptográficas e segredos
-- DDoS Protection: Proteção contra ataques de negação de serviço distribuído
+###### - Key Vault: 
+Gerenciamento seguro de chaves criptográficas e segredos
 
-## Ferramentas de Gerenciamento e Governança
+###### - DDoS Protection: Proteção contra ataques de negação de serviço distribuído
 
-### 7.1 Azure Portal: 
-Interface gráfica para gerenciamento de recursos
 
-### 7.2 Azure PowerShell e CLI: 
-Ferramentas de linha de comando
+## Gerenciamento e Governança
 
-### 7.3 Azure Resource Manager: 
-Implantação e gerenciamento de recursos
+### 7.1 Gerenciamento de Custos
 
-### 7.4 Azure Policy: 
-Implementação de padrões e conformidade
+Fatores que afetam os custos no Azure:
 
-###7.5 Azure Monitor: 
-Monitoramento e análise de desempenho
+#### 7.1.1 Tipo de recurso:
 
-## Segurança e Conformidade
+##### - Computação: 
+VMs cobradas por segundo de uso, com preços variando por tamanho e sistema operacional.
+##### - Armazenamento: 
+Cobrado por GB armazenado, com preços diferentes para Hot, Cool e Archive tiers.
+##### - Rede: 
+Custos para transferência de dados, IP público, VPN Gateway, etc.
 
-### 8.1 Azure Security Center: 
-Monitoramento unificado de segurança
+#### 7.1.2 Consumo:
 
-### 8.2 Azure Sentinel: 
-Solução SIEM (Security Information and Event Management)
+##### - Modelo pay-as-you-go: 
+Cobra apenas pelos recursos utilizados.
+##### - Exemplo: 
+Uma VM ligada 24/7 custará mais que uma ligada apenas 8 horas por dia.
 
-### 8.3 Conformidade:
+#### 7.1.3 Manutenção:
 
-- GDPR: Regulamento Geral de Proteção de Dados da União Europeia
-- HIPAA: Lei de Portabilidade e Responsabilidade de Seguros de Saúde dos EUA
-- ISO 27001: Padrão internacional para sistemas de gestão de segurança da informação
-- SOC 1 e SOC 2: Relatórios de controles de segurança e disponibilidade
+- Custos indiretos como tempo de equipe para gerenciamento.
+- Ferramentas de monitoramento e diagnóstico (ex: Azure Monitor).
+
+#### 7.1.4 Área Geográfica:
+
+- Preços variam significativamente entre regiões.
+##### Exemplo: 
+Serviços na região Leste dos EUA geralmente são mais baratos que na Europa Ocidental.
+
+#### 7.1.5 Tráfego de Rede:
+
+- Ingress (entrada de dados) geralmente gratuito.
+- Egress (saída de dados) cobrado por GB, com taxas variando por região.
+
+#### 7.1.6 Assinatura:
+
+##### - Enterprise Agreement: 
+Preços negociados para grandes volumes.
+##### Pay-As-You-Go: 
+Preços padrão de varejo.
+##### CSP (Cloud Solution Provider): 
+Preços definidos pelo parceiro.
+
+### 7.2 Calculadora de Preços
+
+- Interface web interativa para estimar custos.
+- Permite configurar detalhes específicos:
+- Tipo de instância de VM (ex: D2s v3, F4s v2).
+- Horas de operação por mês.
+- Sistema operacional (Windows ou Linux).
+- Opções de licenciamento (PAYG ou Hybrid Benefit).
+- Fornece estimativas detalhadas, incluindo custos mensais e anuais.
+
+### 7.3 Calculadora de TCO (Total Cost of Ownership)
+
+- Compara custos on-premises vs. Azure ao longo de um período (geralmente 3-5 anos).
+
+#### Inputs incluem:
+
+##### - Servidores: 
+Quantidade, especificações, utilização.
+##### - Bancos de dados: Tipo (SQL, Oracle), tamanho.
+##### - Armazenamento: 
+Capacidade, tipo (SAN, NAS).
+##### - Rede: 
+Largura de banda de saída.
+
+#### Outputs:
+
+- Comparação lado a lado de custos on-premises vs. Azure.
+- Detalhamento por categoria (computação, armazenamento, rede, mão de obra).
+
+### 7.4 Ferramenta de Gerenciamento de Custos do Azure
+
+#### Relatórios:
+- Visualizações detalhadas de gastos por serviço, recurso, tag.
+- Análises de tendências ao longo do tempo.
+
+####Enriquecimento de Dados:
+- Adiciona metadados como centro de custo, projeto.
+- Permite alocação de custos compartilhados.
+
+#### Orçamentos:
+- Define limites de gastos por assinatura, grupo de recursos ou serviço.
+- Pode ser configurado para reset mensal, trimestral ou anual.
+
+#### Alertas:
+- Notificações por email ou integração com Azure Action Groups.
+- Configurável para diferentes níveis (ex: 80%, 100% do orçamento).
+
+#### Recomendações:
+- Identifica VMs subutilizadas.
+- Sugere compra de instâncias reservadas.
+- Recomenda mudança para tiers de armazenamento mais econômicos.
+
+### 7.5 Marcas (Tags)
+
+#### - Formato: 
+chave:valor (ex: "Departamento:Marketing").
+- Limite de 50 tags por recurso.
+
+#### - Usos avançados:
+##### - Automação: 
+Usar tags para acionar Azure Automation runbooks.
+##### - Políticas: 
+Enforçar tagging obrigatório via Azure Policy.
+##### - RBAC: 
+Controlar acesso baseado em tags.
+
+### 7.6 Azure Marketplace
+
+#### Tipos de ofertas:
+- Soluções SaaS.
+- Imagens de VM pré-configuradas.
+- Containers.
+- Serviços de consultoria.
+
+#### - Processo de publicação rigoroso:
+- Verificação de segurança.
+- Testes de compatibilidade.
+- Revisão de documentação.
+
+#### - Modelos de preços:
+- PAYG (Pay-As-You-Go).
+- Licenças trazidas pelo cliente (BYOL).
+- Versões de avaliação gratuitas.
+
+### Considerações Adicionais
+
+#### Otimização de Custos:
+
+##### Azure Advisor: 
+Fornece recomendações personalizadas.
+##### Azure Reservations: 
+Desconto significativo para compromissos de 1 ou 3 anos.
+##### Spot VMs: 
+VMs com grande desconto, mas que podem ser desalocadas a qualquer momento.
+
+#### Governança:
+
+##### Azure Policy: 
+Define e enforça regras para recursos (ex: regiões permitidas, SKUs de VM).
+##### Management Groups: 
+Organiza assinaturas em hierarquias para aplicação de políticas e RBAC.
+##### Blueprints: 
+Define conjuntos repetíveis de recursos que aderem aos padrões organizacionais.
+
+#### Monitoramento Contínuo:
+##### Azure Monitor: 
+Coleta e analisa telemetria de aplicações e infraestrutura.
+##### Log Analytics: 
+Ferramenta para consulta e análise de logs.
+##### Application Insights: 
+Monitoramento e diagnóstico específico para aplicações web.
+
+#### Planejamento Financeiro:
+
+##### Forecasting: 
+Usa machine learning para prever gastos futuros baseado em padrões históricos.
+##### Chargeback e Showback: 
+Alocação de custos para unidades de negócio internas.
+##### FinOps: 
+Prática de otimização contínua de custos em colaboração entre equipes financeiras e técnicas.
 
 ## Controle de Versão e Colaboração
 
-### 9.1 Git: Sistema de controle de versão distribuído
+### 8.1 Git: Sistema de controle de versão distribuído
 
 Mantém histórico completo de alterações no código
 
