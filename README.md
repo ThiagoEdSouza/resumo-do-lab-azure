@@ -713,9 +713,153 @@ Alocação de custos para unidades de negócio internas.
 ##### FinOps: 
 Prática de otimização contínua de custos em colaboração entre equipes financeiras e técnicas.
 
+### 8.1 Governança e Conformidade no Azure
+
+#### 8.1.1  Azure Policy
+
+Azure Policy é uma ferramenta crucial para manter o controle e a conformidade em ambientes Azure.
+
+##### 8.1.1.1 Características principais:
+
+- Impõe regras e efeitos sobre os recursos.
+- Avalia recursos existentes para conformidade com políticas.
+- Fornece relatórios de conformidade.
+
+##### 8.1.1.2 Funcionalidades:
+
+###### - Definições de Política:
+Regras predefinidas ou personalizadas.
+####### Exemplos: 
+regiões permitidas, SKUs de VM permitidos, tags obrigatórias.
+
+###### Iniciativas:
+- Agrupamentos de políticas relacionadas.
+- Facilita o gerenciamento de múltiplas políticas.
+
+###### Atribuições:
+- Aplica políticas ou iniciativas a escopos específicos (assinaturas, grupos de recursos).
+
+###### Efeitos:
+####### - Deny: 
+Bloqueia a criação/modificação de recursos não conformes.
+####### - Audit: 
+Permite a criação, mas marca como não conforme.
+####### - Append: 
+Adiciona informações ao recurso (ex: tags).
+####### - DeployIfNotExists: 
+Cria recursos relacionados automaticamente.
+
+###### Conformidade:
+- Avaliação regular de recursos.
+- Dashboards e relatórios de conformidade.
+
+##### Benefícios:
+
+- Consistência na configuração de recursos.
+- Aplicação de padrões de segurança e conformidade regulatória.
+- Controle de custos (ex: limitando SKUs caros).
+- Governança em larga escala.
+
+#### 8.1.2 Bloqueios de Recurso
+
+Bloqueios de recurso são uma camada adicional de proteção contra modificações ou exclusões acidentais.
+
+##### 8.1.2.1 Tipos de bloqueio:
+
+###### CanNotDelete (Excluir):
+- Permite leitura e modificação.
+- Impede exclusão do recurso.
+
+###### ReadOnly (Leitura):
+- Permite apenas leitura.
+- Impede modificações e exclusões.
+
+##### 8.1.2.2 Características:
+
+###### Aplicáveis em diferentes níveis: 
+assinatura, grupo de recursos, recurso individual.
+###### Herança: 
+Bloqueios em níveis superiores são herdados por recursos abaixo.
+###### Permissões: 
+Requer privilégios de "Proprietário" ou "Administrador de Acesso do Usuário" para gerenciar bloqueios.
+
+##### 8.1.2.3 Uso comum:
+
+- Proteção de recursos críticos.
+- Garantia de continuidade de serviços essenciais.
+- Imposição de políticas de governança.
+
+##### 8.1.2.4 Considerações:
+
+- Podem ser contornados por usuários com permissões adequadas.
+- Não substituem RBAC (Controle de Acesso Baseado em Função).
+- Afetam todas as operações, incluindo automações.
+
+#### 8.1.3 Portal de Confiança do Serviço
+
+O Portal de Confiança do Serviço é um recurso centralizado para informações de conformidade, segurança e privacidade da Microsoft.
+
+##### 8.1.3.1 Conteúdo:
+
+###### Relatórios de auditoria e certificações:
+ISO, SOC, PCI DSS, etc.
+###### Documentação de conformidade:
+Detalhes sobre como os serviços Microsoft atendem a diferentes regulamentações.
+###### Mapeamentos de controle:
+Como os controles de segurança da Microsoft se alinham com padrões da indústria.
+###### Informações de privacidade e proteção de dados:
+Políticas e práticas de proteção de dados da Microsoft.
+###### Recursos adicionais:
+White papers, FAQs, estudos de caso.
+
+##### 8.1.3.2 Benefícios:
+
+- Transparência sobre práticas de segurança e conformidade da Microsoft.
+- Facilita demonstrações de conformidade para auditores e reguladores.
+- Acesso a informações atualizadas sobre conformidade de serviços em nuvem.
+
+#### 8.1.4 Microsoft Purview
+
+Microsoft Purview é uma solução abrangente para governança de dados e conformidade.
+
+##### 8.1.4.1 Principais componentes:
+
+###### Mapa de Dados:
+- Descoberta automatizada de dados em múltiplas fontes.
+- Criação de catálogo de dados unificado.
+- Classificação e Rotulagem:
+- Identificação automática de dados sensíveis.
+- Aplicação de rótulos de sensibilidade.
+
+###### Linhagem de Dados:
+- Rastreamento da origem e transformações dos dados.
+- Visualização de fluxos de dados end-to-end.
+
+###### Gerenciamento de Políticas:
+- Definição e aplicação de políticas de governança de dados.
+- Monitoramento de conformidade.
+
+###### Insights e Relatórios:
+- Dashboards para visibilidade do estado de governança.
+- Relatórios de conformidade e riscos.
+
+##### Funcionalidades adicionais:
+
+- Integração com Azure Synapse Analytics para análise de dados.
+- Conexão com fontes de dados on-premises e multi-cloud.
+- Suporte a regulamentações como GDPR, CCPA, HIPAA.
+
+#### Benefícios:
+
+- Visão unificada de dados em ambientes heterogêneos.
+- Melhoria na qualidade e confiabilidade dos dados.
+- Facilitação da conformidade regulatória.
+- Aprimoramento da segurança de dados.
+
+
 ## Controle de Versão e Colaboração
 
-### 8.1 Git: Sistema de controle de versão distribuído
+### 9.1 Git: Sistema de controle de versão distribuído
 
 Mantém histórico completo de alterações no código
 
